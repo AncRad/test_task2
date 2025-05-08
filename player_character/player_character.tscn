@@ -1,0 +1,30 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwwl40psy8ep1"]
+
+[ext_resource type="Script" uid="uid://630f5tcg24fm" path="res://player_character/player_character.gd" id="1_bvxdu"]
+[ext_resource type="Script" uid="uid://crp7756i71cfd" path="res://player_character/move_patterns/pattern.gd" id="2_n4q7y"]
+[ext_resource type="Resource" uid="uid://dyifalpde1scf" path="res://player_character/move_patterns/elephant.tres" id="3_33jgw"]
+[ext_resource type="Texture2D" uid="uid://d7ohyfxvkvng" path="res://application/icon.svg" id="3_731wj"]
+[ext_resource type="Resource" uid="uid://4adohfy2gv7k" path="res://player_character/move_patterns/horse.tres" id="4_adpv0"]
+[ext_resource type="Script" uid="uid://dhbjim2wi3a3l" path="res://player_character/available_cells_visualizer.gd" id="4_n4q7y"]
+[ext_resource type="Resource" uid="uid://biwsol71wqjgs" path="res://player_character/move_patterns/rook.tres" id="5_aodji"]
+[ext_resource type="Script" uid="uid://sp1najfmrb7n" path="res://player_character/cursor.gd" id="8_33jgw"]
+
+[node name="PlayerCharacter" type="Node2D"]
+script = ExtResource("1_bvxdu")
+patterns = Array[ExtResource("2_n4q7y")]([ExtResource("3_33jgw"), ExtResource("5_aodji"), ExtResource("4_adpv0")])
+editor_enabled_pattern = 0
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_731wj")
+
+[node name="AvailableCellsVisualizer" type="Node2D" parent="." node_paths=PackedStringArray("player_character")]
+unique_name_in_owner = true
+script = ExtResource("4_n4q7y")
+player_character = NodePath("..")
+
+[node name="Cursor" type="Node2D" parent="." node_paths=PackedStringArray("player_character")]
+script = ExtResource("8_33jgw")
+player_character = NodePath("..")
+
+[connection signal="availabled_cells_changed" from="." to="AvailableCellsVisualizer" method="queue_redraw"]

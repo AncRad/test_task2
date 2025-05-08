@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MoveLogicPattern" load_steps=2 format=3 uid="uid://4adohfy2gv7k"]
+
+[ext_resource type="Script" uid="uid://crp7756i71cfd" path="res://player_character/move_patterns/pattern.gd" id="1_06kq1"]
+
+[resource]
+script = ExtResource("1_06kq1")
+pattern = 1
+metadata/_custom_type_script = "uid://crp7756i71cfd"

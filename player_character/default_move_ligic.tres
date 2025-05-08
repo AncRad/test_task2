@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MoveLogic" load_steps=6 format=3 uid="uid://bjm81qxub4t16"]
+
+[ext_resource type="Script" uid="uid://crp7756i71cfd" path="res://player_character/move_patterns/pattern.gd" id="1_1cfj0"]
+[ext_resource type="Resource" uid="uid://biwsol71wqjgs" path="res://player_character/move_patterns/rook.tres" id="2_qiwfh"]
+[ext_resource type="Resource" uid="uid://dyifalpde1scf" path="res://player_character/move_patterns/elephant.tres" id="3_y7w65"]
+[ext_resource type="Resource" uid="uid://4adohfy2gv7k" path="res://player_character/move_patterns/horse.tres" id="4_pu6kj"]
+[ext_resource type="Script" uid="uid://cc50je4onwjlw" path="res://player_character/move_logic/move_logic.gd" id="5_y7w65"]
+
+[resource]
+script = ExtResource("5_y7w65")
+patterns = Array[ExtResource("1_1cfj0")]([ExtResource("2_qiwfh"), ExtResource("3_y7w65"), ExtResource("4_pu6kj")])
