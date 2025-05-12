@@ -7,19 +7,9 @@ var player_character : PlayerCharacter
 
 
 func _draw() -> void:
-	var drawed : Dictionary[Vector2i, bool]
-	for cell in player_character.get_available_cells():
-		if not cell in drawed:
-			drawed[cell] = true
-			draw_circle(cell * G.CELL, 10, Color.GREEN)
-	
-	for dir in player_character.get_available_directions():
-		for i in 500:
-			var cell : Vector2i = dir * i
-			if not Rect2(-get_viewport().size / 2, get_viewport().size).has_point(position + Vector2(cell * G.CELL)):
-				break
+	if player_character and player_character.move_logic:
+		var drawed : Dictionary[Vector2i, bool]
+		for cell in player_character.move_logic.get_available_cells():
 			if not cell in drawed:
 				drawed[cell] = true
 				draw_circle(cell * G.CELL, 10, Color.GREEN)
-	
-	print('drawed cells', drawed.size())

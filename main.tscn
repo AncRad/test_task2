@@ -1,16 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtiehp48s3c6b"]
+[gd_scene load_steps=6 format=3 uid="uid://dtiehp48s3c6b"]
 
 [ext_resource type="PackedScene" uid="uid://dwwl40psy8ep1" path="res://player_character/player_character.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://bda6sihcnr8f" path="res://addons/kenney_prototype_textures/light/texture_06.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d7ohyfxvkvng" path="res://application/icon.svg" id="2_h2yge"]
+[ext_resource type="Resource" uid="uid://bjm81qxub4t16" path="res://player_character/default_move_ligic.tres" id="4_1bvp3"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
 size = Vector2(512, 512)
 
 [node name="Main" type="Node"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Node2D" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -84,5 +82,6 @@ scale = Vector2(2.83923, 2.93666)
 texture = ExtResource("2_h2yge")
 
 [node name="PlayerCharacter" parent="Node2D" instance=ExtResource("2_0xm2m")]
+move_logic = ExtResource("4_1bvp3")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D/PlayerCharacter"]

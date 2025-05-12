@@ -4,4 +4,7 @@
 
 [resource]
 script = ExtResource("1_wg8cn")
+pattern = 0
+enabled = true
+directional_distance = 2
 metadata/_custom_type_script = "uid://crp7756i71cfd"

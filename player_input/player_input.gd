@@ -1,26 +1,28 @@
 extends Node
 
-signal grid_cursor_move(relative : Vector2i)
-signal grid_cursor_click
-
+@export
+var player_controller : PlayerController:
+	set(value):
+		player_controller = value
+		print("SETTER: value == ", value)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('grid_cursor_move_up'):
-		grid_cursor_move.emit(Vector2i.UP)
+		player_controller.move_cursor(Vector2i.UP)
 		get_viewport().set_input_as_handled()
 	
 	elif event.is_action_pressed('grid_cursor_move_left'):
-		grid_cursor_move.emit(Vector2i.LEFT)
+		player_controller.move_cursor(Vector2i.LEFT)
 		get_viewport().set_input_as_handled()
 	
 	elif event.is_action_pressed('grid_cursor_move_down'):
-		grid_cursor_move.emit(Vector2i.DOWN)
+		player_controller.move_cursor(Vector2i.DOWN)
 		get_viewport().set_input_as_handled()
 	
 	elif event.is_action_pressed('grid_cursor_move_right'):
-		grid_cursor_move.emit(Vector2i.RIGHT)
+		player_controller.move_cursor(Vector2i.RIGHT)
 		get_viewport().set_input_as_handled()
 	
 	elif event.is_action_pressed('grid_cursor_click'):
-		grid_cursor_click.emit()
+		player_controller.move_to_cursor()
 		get_viewport().set_input_as_handled()
